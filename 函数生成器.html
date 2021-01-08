@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数生成器</title>
+</head>
+<body>
+	<script>
+		function sa(obj){
+			return function(){
+				console.log(obj);
+			}
+		}
+
+		var obj={};
+
+		var arr=['d','q','x'];
+
+		arr.forEach(item => {
+			obj['cce'+item]=sa(item)
+		})
+		obj.cced()
+
+
+
+
+
+
+
+		 /**   
+         * 面向对象：注重某一个事务，通过一个事件完成所有的工作  （指挥者）
+         * 
+         * 面向过程：注重过程，完成一个事务需要哪些步骤 （员工）
+         *  
+         * 面向切片编程：修改原有的方法（改变原有函数的执行顺序，原有的代码中添加我们自己的方法）
+         * 所有的函数都是通过Function构造而来
+         * 高阶函数：接收的参数为函数或者返回值为函数
+         * 所有的对象都有__proto__属性
+         * 函数生成器：就是通过一个方法，批量的生成函数
+        */
+// 面向切片编程   
+// before():高阶函数
+    //    function computed(){
+    //         console.log('大仙!');
+    //    }   
+    //    Function.prototype.before = function(fn){
+    //         var that = this;
+    //         return function(){
+    //             fn();
+    //             that();
+    //         }
+    //    }
+
+    //    var newFn = computed.before(()=>{
+    //         console.log('我是紫漠：')
+    //    });
+    //    newFn();
+
+// 高阶函数    返回值是函数，参数也是函数，形成了一个高阶函数
+        // function after(times,callback){
+        //     return function(){
+        //         --times == 0 && callback();
+        //     }
+        // }
+        // var fn = after(new Date(),()=>{
+        //     console.log('我是回调函数')
+        // });
+        // fn();
+        // fn();
+        // fn();
+// 原型链的顶端
+        // console.log(Object.prototype.__proto__ === null);
+
+// 函数生成器    判断数据类型
+        // function isType(type){
+        //     return function(obj){
+        //         return Object.prototype.toString.call(obj).includes(type);
+        //     }
+        // }
+        // var types = ['Null','Object','String','Number','Undefined','Boolean','Array'];
+        // var fns = {};
+        // types.forEach(item =>{
+        //     fns['is'+item] = isType(item);
+        // });
+
+        // var a = 123;
+        // var str = 'ookj';
+        // var flag = true;
+        // var obj = [];
+
+        // console.log(fns.isObject(obj))
+        // console.log(fns.isNumber(a))
+        // console.log(fns.isString(str))
+        // console.log(fns.isBoolean(flag))
+// 案例
+       /* function aaa(type){
+            return function(){
+                console.log(type)
+            }
+        }
+        var arr = ['a','b','c','d'];
+        var obj = {};
+        arr.forEach(item =>{
+            obj['is'+item] = aaa(item);
+        })
+        obj.isc();*/
+	</script>
+</body>
+</html>
